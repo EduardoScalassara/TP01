@@ -175,10 +175,11 @@ int main()
                 cout << "Digite a duracao: ";
                 cin >> duracao_valor;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer do teclado
-                if (duracao.setDuracao(duracao_valor)) {
-                    cout << "Duracao = " << duracao.getDuracao() << "\n";
-                } else {
-                    cout << "Invalido\n";
+                try {
+                    duracao.setDuracao(duracao_valor);
+                }
+                catch(out_of_range &exp){
+                    cout << "Excecao: " << exp.what() << "\n\n";
                 }
             }
             else if (opcao == 5) {
@@ -188,11 +189,12 @@ int main()
                 cout << "Digite a avaliacao: ";
                 cin >> avaliacao_valor;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer do teclado
-                if (avaliacao.setAvaliacao(avaliacao_valor)) {
-                    cout << "Avaliacao = " << avaliacao.getAvaliacao() << "\n";
-                } else {
-                    cout << "Invalido\n";
-            }
+                try{
+                    avaliacao.setAvaliacao(avaliacao_valor);
+                }
+                catch(out_of_range &exp){
+                    cout << "Excecao: " << exp.what() << "\n\n";
+                }
             }
             else if (opcao == 6) {
                 Data data;
@@ -201,10 +203,11 @@ int main()
                 cout << "Digite a data: ";
                 cin >> data_valor;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer do teclado
-                if (data.setData(data_valor)) {
-                    cout << "Data = " << data.getData() << "\n";
-                } else {
-                    cout << "Invalido\n";
+                try {
+                    data.setData(data_valor);
+                }
+                catch(out_of_range &exp){
+                    cout << "Excecao: " << exp.what() << "\n\n";
                 }
             }
             else if (opcao == 7) {
@@ -214,10 +217,17 @@ int main()
                 cout << "Digite a senha: ";
                 cin >> senha_valor;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer do teclado
-                if (senha.setSenha(senha_valor)) {
-                    cout << "Senha = " << senha.getSenha() << "\n";
-                } else {
-                    cout << "Invalido\n";
+                try {
+                    senha.setSenha(senha_valor);
+                }
+                catch(invalid_argument &exp){
+                    cout << "Excecao: " << exp.what() << "\n\n";
+                } 
+                catch(out_of_range &exp){
+                    cout << "Excecao: " << exp.what() << "\n\n";
+                }
+                catch(domain_error &exp){
+                    cout << "Excecao: " << exp.what() << "\n\n";
                 }
             }
             else if (opcao == 8) {
@@ -227,11 +237,16 @@ int main()
                 cout << "Digite o codigo: ";
                 cin >> codigo_valor;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer do teclado
-                if (codigo.setCodigo(codigo_valor)) {
-                    cout << "Codigo = " << codigo.getCodigo() << "\n";
-                } else {
-                    cout << "Invalido\n";
+                try {
+                    codigo.setCodigo(codigo_valor);
                 }
+                catch(out_of_range &exp){
+                    cout << "Excecao: " << exp.what() << "\n\n";
+                }
+                catch(domain_error &exp){
+                    cout << "Excecao: " << exp.what() << "\n\n";
+                }
+                
             }
             else if (opcao == 9) {
                 cout << "Finalizando operacao\n";
