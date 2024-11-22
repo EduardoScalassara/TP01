@@ -59,13 +59,13 @@ void Dinheiro::validateDinheiro(string dinheiro){ //Valida se o dinheiro está n
         this->dinheiro = stof(dinheiro); //Converte para float
     }
     catch (invalid_argument &exp){
-        throw invalid_argument("Argumento invalida");
+        throw invalid_argument("Argumento invalido");
     }
     if (Dinheiro::dinheiro < 0){
-        throw invalid_argument("Argumento invalida");
+        throw invalid_argument("Argumento invalido");
     }
     else if (Dinheiro::dinheiro > 200000){
-        throw invalid_argument("Argumento invalida");
+        throw invalid_argument("Argumento invalido");
     }
 }
 
@@ -84,7 +84,7 @@ void Dinheiro::setDinheiro(string dinheiro){ //Coloca no padrão de calculo da l
     }
     catch(invalid_argument &exp) {
         this->dinheiroView = ""; //Se não for um número, o valor é inválido
-        throw invalid_argument("Argumento invalida");
+        throw invalid_argument("Argumento invalido");
     }
 }
 
@@ -101,10 +101,10 @@ double Dinheiro::getDinheiro() const {
 void Nome::validateNome(string nome) {
     for (char n: nome){
         if(isdigit(n)){
-            throw invalid_argument("Argumento invalida");
+            throw invalid_argument("Argumento invalido");
         }
     }
-    if(nome.length() < 1 || nome.length() > 30) throw invalid_argument("Argumento invalida"); // Valida se o nome tem entre 1 e 30 caracteres
+    if(nome.length() < 1 || nome.length() > 30) throw invalid_argument("Argumento invalido"); // Valida se o nome tem entre 1 e 30 caracteres
 }
 
 void Nome::setName(string nome) {
@@ -112,7 +112,7 @@ void Nome::setName(string nome) {
         validateNome(nome); // Verifica se o nome � v�lido
     } 
     catch(invalid_argument &exp){
-        throw invalid_argument("Argumento invalida");
+        throw invalid_argument("Argumento invalido");
     }
     this->nome = nome; // Atribui o nome se for v�lido
 }
@@ -125,7 +125,7 @@ string Nome::getName() const {
 
 bool Avaliacao::validateAvaliacao(int avaliacao){
     if (avaliacao < 0 || avaliacao > 5){
-        return false;
+        throw out_of_range("Argumento invalido: Avaliacao deve ser entre 0 e 5");
     }
     else {
         return true;
@@ -150,7 +150,7 @@ string Avaliacao::getAvaliacao() const {
 
 bool Duracao::validateDuracao(int duracao){
     if (duracao < 0 || duracao > 360){
-        return false;
+        throw out_of_range("Argumento invalido: duracao incompativel");
     }
     else {
         return true;
@@ -176,13 +176,13 @@ string Duracao::getDuracao() const {
 bool Data::validateData(unsigned short dia, unsigned short mes, unsigned short ano){
     if (ano >= 0 && ano <= 99){ //Analise para o padrão do ano
         if(mes < 1 || mes > 12){ // Analise para quantidade de mês
-            return false;
+            throw out_of_range("Argumento invalido: mes inexistente");
         }
         else {
             if ((ano % 4) == 0){  //Analise de ano bissexto
                 if (mes == 2){
                     if (dia < 1 || dia > 29){ //Analise dos dias de fevereiro
-                        return false;
+                        throw out_of_range("Argumento invalido: dia inexistente");
                     }
                     else {
                         return true;
@@ -191,7 +191,7 @@ bool Data::validateData(unsigned short dia, unsigned short mes, unsigned short a
                 else {
                     if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12){
                         if(dia < 1 || dia > 31){ //Meses com 31 dias
-                            return false;
+                            throw out_of_range("Argumento invalido: dia inexistente");
                         }
                         else {
                             return true;
@@ -199,7 +199,7 @@ bool Data::validateData(unsigned short dia, unsigned short mes, unsigned short a
                     }
                 else {
                     if(dia < 1 || dia > 30){ // Meses com 30 dias
-                        return false;
+                        throw out_of_range("Argumento invalido: dia inexistente");
                     }
                     else {
                         return true;
@@ -210,7 +210,7 @@ bool Data::validateData(unsigned short dia, unsigned short mes, unsigned short a
             else {
                 if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12){
                     if(dia < 1 || dia > 31){ //Meses com 31 dias
-                        return false;
+                        throw out_of_range("Argumento invalido: dia inexistente");
                     }
                     else {
                         return true;
@@ -218,7 +218,7 @@ bool Data::validateData(unsigned short dia, unsigned short mes, unsigned short a
                 }
                 else {
                     if(dia < 1 || dia > 30){ //Meses com 30 dias
-                        return false;
+                        throw out_of_range("Argumento invalido: dia inexistente");
                     }
                     else {
                         return true;
@@ -228,15 +228,15 @@ bool Data::validateData(unsigned short dia, unsigned short mes, unsigned short a
         }
         }
     else {
-        return false;
+        throw out_of_range("Argumento invalido: ano inexistente");;
     }
 }
 
 bool Data::setData(string data){
     if (data[2] != '-' || data[5] != '-'){
-        return false; //Se a data não for escrita corretamente
+        throw invalid_argument("Argumento invalido: data precisa estar no modelo especificado.");
+        return false;//Se a data não for escrita corretamente
     }
-    int data_final = data.size();
     unsigned short DD = stoi(data.substr(0,2));
     unsigned short MM = stoi(data.substr(3,2));
     unsigned short AA = stoi(data.substr(6,3));
@@ -282,7 +282,7 @@ string Data::getData() const {
 
 bool Codigo::validateCodigo(string codigo){
     if(codigo.size()!=6){
-        return false;
+        throw out_of_range("Argumento invalido: codigo com tamanho diferente de 6 caracteres.");
     }
     vector<char> caracteres = {
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
@@ -291,8 +291,8 @@ bool Codigo::validateCodigo(string codigo){
         'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     for (char letra: codigo){
-        if(count(caracteres.begin(), caracteres.end(), letra) < 0){ //Ver se tem os caracteres validos percorrendo pela string e pelo vector
-            return false;
+        if (not(count(caracteres.begin(), caracteres.end(), letra) < 0)){ //Ver se tem os caracteres validos percorrendo pela string e pelo vector
+            throw domain_error("Argumento invalido: caracteres invalidos");
         }
     }
     return true;
@@ -316,11 +316,11 @@ string Codigo::getCodigo() const {
 
 bool Senha::validateSenha(string senha){
     if (senha.size() != 5){
-        return false;
+        throw out_of_range("Argumento invalido: senha com tamanho diferente de cinco digitos.");
     }
     for(int i = 0; i < 5; i++){ //Ver se tem numero
         if(!isdigit(senha[i])){
-            return false;
+            throw domain_error("Argumento invalido: senha com simbolo invalido.");
         }
     }
     vector<char> caracteres;
@@ -328,7 +328,7 @@ bool Senha::validateSenha(string senha){
     for (char c: senha){
         contagem[c]++;
         if(contagem[c] >= 2){ //Para descobrir se um numero se repete
-            return false;
+            throw invalid_argument("Argumento invalido: senha com numero repetido.");
         }
         caracteres.push_back(c - '0'); //subtracao por ascii, para virar inteiro
     }
@@ -345,7 +345,7 @@ bool Senha::validateSenha(string senha){
             contador_cre++;
         }
         if(contador_cre == 4 || contador_dec == 4){
-            return false;
+            throw invalid_argument("Argumento invalido: senha crescente/decrescente");
         }
     }
     return true;
