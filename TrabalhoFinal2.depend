@@ -1,0 +1,112 @@
+# depslib dependency file v1.0
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\builder.cpp
+	"builder.hpp"
+	"controlaApresentacao.hpp"
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\builder.hpp
+	"interfaces.hpp"
+	"controlaApresentacao.hpp"
+	"controleServicos.hpp"
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\interfaces.hpp
+	"dominios.hpp"
+	"entidades.hpp"
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\dominios.hpp
+	<string>
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\entidades.hpp
+	"dominios.hpp"
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\controlaapresentacao.hpp
+	<iostream>
+	<string>
+	"utils.hpp"
+	"interfaces.hpp"
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\utils.hpp
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\controleservicos.hpp
+	<iostream>
+	<string>
+	"interfaces.hpp"
+
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\container.cpp
+	<bits/stdc++.h>
+	"container.hpp"
+	"entidades.hpp"
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\container.hpp
+	<bits/stdc++.h>
+
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\controlaapresentacao.cpp
+	<iostream>
+	<string>
+	<thread>
+	<chrono>
+	"controlaApresentacao.hpp"
+	"utils.hpp"
+	"entidades.hpp"
+	"controleServicos.hpp"
+
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\controleservicos.cpp
+	<iostream>
+	<string>
+	<thread>
+	<chrono>
+	"utils.hpp"
+	"entidades.hpp"
+	"controleServicos.hpp"
+	"container.hpp"
+
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\dominios.cpp
+	"dominios.hpp"
+	<stdexcept>
+	<map>
+	<vector>
+	<cctype>
+	<algorithm>
+	<string>
+	<iostream>
+
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\entidades.cpp
+	"entidades.hpp"
+	"dominios.hpp"
+
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\main.cpp
+	<iostream>
+	<limits>
+	<stdexcept>
+	<iomanip>
+	<stdio.h>
+	<string>
+	"dominios.hpp"
+	"entidades.hpp"
+	"testes.hpp"
+	"controlaApresentacao.hpp"
+	"controleServicos.hpp"
+	"utils.hpp"
+	"builder.hpp"
+	"interfaces.hpp"
+
+1738535796 c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\testes.hpp
+	<string>
+	<stdexcept>
+	"dominios.hpp"
+	"entidades.hpp"
+
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\testes.cpp
+	<string>
+	<iostream>
+	<stdexcept>
+	"entidades.hpp"
+	"testes.hpp"
+	"dominios.hpp"
+
+1738535796 source:c:\users\dulns\onedrive\documentos\trabalhofinal2\trabalhofinal2\utils.cpp
+	"utils.hpp"
+	<iostream>
+	<limits>
+	<unistd.h>
+	<windows.h>
+
