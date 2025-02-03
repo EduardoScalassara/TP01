@@ -26,3 +26,6 @@ Participações dos membros:
 
 Para ler a documentação da aplicação acesse:
 /Docs/html/index.html
+
+Vídeo explicativo do projeto:
+https://www.youtube.com/watch?v=D5ZunTBYa9Q
